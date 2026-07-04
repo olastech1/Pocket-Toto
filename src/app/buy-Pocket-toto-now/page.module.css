@@ -1,0 +1,311 @@
+.landingContainer {
+  background: var(--bg-primary);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ─── Hero Section ─── */
+.heroSection {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem var(--container-padding) 4rem;
+  overflow: hidden;
+}
+
+.ambientGlow {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 60vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, rgba(10, 10, 15, 0) 70%);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  animation: pulseGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  animation: slideDown 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.gradientText {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+  animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+.ctaWrapper {
+  animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+}
+
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+}
+
+.primaryCta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+  background: var(--accent);
+  color: #fff;
+}
+
+.arrow {
+  transition: transform var(--transition-fast);
+}
+
+.primaryCta:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* Floating Showcase */
+.floatingShowcase {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.floatItem {
+  position: absolute;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  border: 1px solid var(--border);
+  opacity: 0.8;
+}
+
+.floatImg {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.float1 {
+  top: 20%;
+  left: 5%;
+  transform: rotate(-10deg);
+  animation: floatSlow 12s ease-in-out infinite;
+}
+
+.float2 {
+  bottom: 10%;
+  right: 10%;
+  transform: rotate(5deg);
+  animation: floatSlow 15s ease-in-out infinite reverse;
+}
+
+.float3 {
+  top: 40%;
+  right: -5%;
+  transform: rotate(15deg);
+  filter: blur(4px);
+  animation: floatSlow 10s ease-in-out infinite 2s;
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0) rotate(-10deg); }
+  50% { transform: translateY(-30px) rotate(-5deg); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Philosophy Section ─── */
+.philosophySection {
+  padding: 8rem var(--container-padding);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--text-primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 3rem 2rem;
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-base);
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
+}
+
+.cardIcon {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ─── Marquee ─── */
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  background: var(--accent);
+  padding: 1.5rem 0;
+  transform: rotate(-2deg);
+  margin: 4rem -2rem;
+  width: calc(100% + 4rem);
+}
+
+.marquee {
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── Final Section ─── */
+.finalSection {
+  padding: 8rem var(--container-padding);
+  text-align: center;
+  background: radial-gradient(circle at center, rgba(26,26,35,1) 0%, var(--bg-primary) 70%);
+}
+
+.finalContent {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.finalTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.finalSubtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+}
+
+.glowButton {
+  display: inline-block;
+  background: var(--gradient-accent);
+  color: #fff;
+  padding: 1.2rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-glow);
+  transition: all var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.glowButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 40px rgba(245, 158, 11, 0.4);
+}
+
+@media (max-width: 768px) {
+  .floatingShowcase {
+    display: none; /* Hide floating items on mobile for better readability */
+  }
+}
