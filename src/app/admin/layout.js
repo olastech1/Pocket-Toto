@@ -28,6 +28,9 @@ export default async function AdminLayout({ children }) {
           <Link href="/admin/orders" className={styles.navLink}>
             Orders
           </Link>
+          <Link href="/admin/users" className={styles.navLink}>
+            Users
+          </Link>
           <Link href="/dashboard" className={`${styles.navLink} ${styles.returnLink}`}>
             Return to Store
           </Link>

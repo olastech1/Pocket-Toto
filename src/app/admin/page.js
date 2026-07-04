@@ -50,6 +50,27 @@ export default async function AdminOverview() {
           <p style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--text-primary)' }}>{productCount}</p>
         </div>
       </div>
+
+      <div style={{ marginTop: '3rem', background: 'var(--bg-secondary)', padding: '2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)' }}>
+        <h3 style={{ fontSize: '1.1rem', color: 'var(--text-primary)', marginBottom: '1.5rem' }}>Revenue Overview (Mock Data)</h3>
+        
+        <div style={{ display: 'flex', alignItems: 'flex-end', height: '200px', gap: '2%', paddingBottom: '1rem', borderBottom: '1px solid var(--border)' }}>
+          {[30, 50, 40, 70, 60, 90, 80].map((height, i) => (
+            <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+              <div style={{ 
+                width: '100%', 
+                height: `${height}%`, 
+                background: i === 6 ? 'var(--gradient-accent)' : 'var(--glass-bg)',
+                borderRadius: 'var(--radius-sm) var(--radius-sm) 0 0',
+                transition: 'height var(--transition-base)'
+              }} />
+            </div>
+          ))}
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem', color: 'var(--text-muted)', fontSize: '0.8rem', textTransform: 'uppercase' }}>
+          <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+        </div>
+      </div>
     </div>
   );
 }
