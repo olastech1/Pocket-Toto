@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 import styles from './Navbar.module.css';
 
-export default function Navbar() {
+export default function Navbar({ session }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { cartCount, toggleCart } = useCart();
@@ -36,6 +36,12 @@ export default function Navbar() {
           <Link href="/products" className={styles.navLink}>Shop</Link>
           <Link href="/blog" className={styles.navLink}>Blog</Link>
           <Link href="#" className={styles.navLink}>About</Link>
+          
+          {session ? (
+            <Link href="/dashboard" className={styles.navLink}>Dashboard</Link>
+          ) : (
+            <Link href="/api/auth/signin" className={styles.navLink}>Sign In</Link>
+          )}
         </nav>
 
         <div className={styles.actions}>
@@ -83,6 +89,15 @@ export default function Navbar() {
               <Link href="#" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>
                 About
               </Link>
+              {session ? (
+                <Link href="/dashboard" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>
+                  Dashboard
+                </Link>
+              ) : (
+                <Link href="/api/auth/signin" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>
+                  Sign In
+                </Link>
+              )}
             </nav>
           </div>
         </>

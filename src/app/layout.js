@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CartDrawer from '@/components/CartDrawer';
 import { CartProvider } from '@/context/CartContext';
+import { auth } from '@/auth';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -32,12 +33,14 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const session = await auth();
+
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
       <body>
         <CartProvider>
-          <Navbar />
+          <Navbar session={session} />
           <main>{children}</main>
           <CartDrawer />
           <Footer />
